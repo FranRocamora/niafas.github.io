@@ -114,10 +114,40 @@ border-radius:30px;
 cursor:pointer;
 }
 
+/* CONTACT */
+
+.contact{
+text-align:center;
+padding:70px 20px;
+background:#fff2cc;
+}
+
+.contact h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.contact-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.call{
+background:#333;
+color:white;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+}
+
 /* FOOTER */
 
 footer{
-margin-top:80px;
+margin-top:40px;
 padding:30px;
 background:#f4d03f;
 text-align:center;
@@ -139,35 +169,35 @@ color:black;
 
 <img src="logo.png" class="logo">
 
-<h1>Niafas Bites</h1>
+<h1>Mini Sweet Bites</h1>
 
-<p>The sweetest homemade treats 🍪</p>
+<p>Los dulces caseros más deliciosos</p>
 
 </header>
 
 <section class="products">
 
-<h2>Our Products</h2>
+<h2>Nuestros Productos</h2>
 
 <div class="grid">
 
-<div class="card" onclick="openModal('Mini Cookies','Soft homemade mini cookies packed with flavor.')">
+<div class="card" onclick="openModal('Mini Cookies','Mini galletas caseras suaves y llenas de sabor.')">
 <h3>Mini Cookies</h3>
 </div>
 
-<div class="card" onclick="openModal('Pan de Bono','Traditional cheesy Colombian bread, soft inside and crispy outside.')">
+<div class="card" onclick="openModal('Pan de Bono','Pan de bono tradicional colombiano con queso, suave por dentro y ligeramente crujiente por fuera.')">
 <h3>Pan de Bono</h3>
 </div>
 
-<div class="card" onclick="openModal('Polvorosas','Delicious buttery cookies that melt in your mouth.')">
+<div class="card" onclick="openModal('Polvorosas','Deliciosas galletas de mantequilla que se derriten en tu boca.')">
 <h3>Polvorosas</h3>
 </div>
 
-<div class="card" onclick="openModal('Trufas de Mani y Chocolate','Chocolate truffles mixed with peanut flavor.')">
+<div class="card" onclick="openModal('Trufas de Mani y Chocolate','Trufas de chocolate con delicioso sabor a maní.')">
 <h3>Trufas de Mani y Chocolate</h3>
 </div>
 
-<div class="card" onclick="openModal('Barras de Cookies','Thick cookie bars with rich chocolate flavor.')">
+<div class="card" onclick="openModal('Barras de Cookies','Barras de galleta con intenso sabor a chocolate y su topping de chocolate.')">
 <h3>Barras de Cookies</h3>
 </div>
 
@@ -184,22 +214,38 @@ color:black;
 <p id="productDescription"></p>
 
 <a id="whatsappBtn" target="_blank">
-
-<button>Order on WhatsApp</button>
-
+<button>Ordena por WhatsApp</button>
 </a>
 
 <br><br>
 
-<button onclick="closeModal()">Close</button>
+<button onclick="closeModal()">Cerrar</button>
 
 </div>
 
 </div>
+
+<section class="contact">
+
+<h2>Contáctanos</h2>
+
+<div class="contact-buttons">
+
+<a href="tel:+1813397688">
+<button class="call">Llamar</button>
+</a>
+
+<a href="https://wa.me/1813397688" target="_blank">
+<button class="whatsapp">Enviar mensaje por WhatsApp</button>
+</a>
+
+</div>
+
+</section>
 
 <footer>
 
-<p>Follow us on Instagram</p>
+<p>Síguenos en Instagram</p>
 
 <a href="https://instagram.com/niafasbites" target="_blank">
 @niafasbites
@@ -214,10 +260,10 @@ function openModal(title,description){
 document.getElementById("productTitle").innerText = title;
 document.getElementById("productDescription").innerText = description;
 
-let message = "Hello! I want to order " + title + " from Niafas Bites.";
+let message = "Hola! Quiero ordenar " + title + " de Niafas Bites.";
 
 document.getElementById("whatsappBtn").href =
-"https://wa.me/?text=" + encodeURIComponent(message);
+"https://wa.me/1813397688?text=" + encodeURIComponent(message);
 
 document.getElementById("productModal").style.display="flex";
 
