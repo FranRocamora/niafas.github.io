@@ -2,355 +2,264 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niafas Bites</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* =======================
+       GENERAL STYLES
+    ======================= */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      color: #333;
+    }
 
-<title>Niafas Bites</title>
+    button {
+      margin-top: 20px;
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
 
-<style>
+    /* =======================
+       HEADER
+    ======================= */
+    header {
+      background-color: #844A8E;
+      background-image: url('chocolate-sprinkles.png'), url('chocolate-sprinkles.png');
+      background-position: left top, right top;
+      background-repeat: no-repeat, no-repeat;
+      padding: 40px;
+      text-align: center;
+    }
 
-/* GENERAL */
+    .logo {
+      width: 280px;
+    }
 
-body{
-    margin:0;
-    font-family:'Segoe UI', sans-serif;
-    background:#fff8f0;
-    color:#333;
-}
+    header h1 {
+      font-size: 42px;
+      margin: 10px 0;
+      color: #fff2cc;
+    }
 
-/* HEADER */
+    header p {
+      font-size: 18px;
+      color: #fff2cc;
+    }
 
-header {
-    background-color: #844A8E;
-    background-image: url('chocolate-sprinkles.png'), url('chocolate-sprinkles.png');
-    background-position: left top, right top;
-    background-repeat: no-repeat, no-repeat;
-    padding: 40px;
-    text-align: center;
-}
+    /* =======================
+       PRODUCTS SECTION
+    ======================= */
+    .products {
+      padding: 60px;
+      text-align: center;
+    }
 
-.logo{
-    width:280px;
-}
+    .products h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
 
-header h1{
-    font-size:42px;
-    margin:10px 0;
-    color: #f4d03f;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-header p{
-    font-size:18px;
-    color: #f4d03f;
-}
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-/* PRODUCTS */
+    .card:hover {
+      transform: translateY(-10px);
+    }
 
-.products{
-    padding:60px;
-    text-align:center;
-}
+    .card h3 {
+      font-size: 22px;
+      margin: 10px 0;
+    }
 
-.products h2{
-    font-size:32px;
-    margin-bottom:40px;
-}
+    /* =======================
+       MODAL
+    ======================= */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-    max-width:1000px;
-    margin:auto;
-}
+    .modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 500px;
+      text-align: center;
+    }
 
-.card{
-    background:white;
-    border-radius:16px;
-    padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    cursor:pointer;
-    transition:0.3s;
-}
+    .modal img {
+      width: 100%;
+      border-radius: 10px;
+    }
 
-.card:hover{
-    transform:translateY(-10px);
-}
+    /* =======================
+       CONTACT SECTION
+    ======================= */
+    .contact {
+      text-align: center;
+      padding: 70px 20px;
+      background: #fff2cc;
+    }
 
-.card h3{
-    font-size:22px;
-    margin:10px 0;
-}
+    .contact h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
 
-/* MODAL */
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-.modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    justify-content:center;
-    align-items:center;
-}
+    .call {
+      background: #333;
+      color: white;
+    }
 
-.modal-content{
-    background:white;
-    padding:40px;
-    border-radius:15px;
-    max-width:700px;
-    text-align:left;
-    display:flex;
-    gap:20px;
-    align-items:center;
-}
+    .whatsapp {
+      background: #25D366;
+      color: white;
+    }
 
-.slider {
-    position: relative;
-    width:300px;
-    flex-shrink: 0;
-}
+    /* =======================
+       FOOTER
+    ======================= */
+    footer {
+      margin-top: 40px;
+      padding: 30px;
+      background: #f4d03f;
+      text-align: center;
+    }
 
-.slider img {
-    width:100%;
-    border-radius:10px;
-}
-
-.slider button {
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color:white;
-    border:none;
-    padding:10px;
-    cursor:pointer;
-    border-radius:50%;
-}
-
-#prevBtn {
-    left: -20px;
-}
-
-#nextBtn {
-    right: -20px;
-}
-
-.description {
-    flex:1;
-}
-
-button{
-    margin-top:20px;
-    background:#25D366;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    font-size:16px;
-    border-radius:30px;
-    cursor:pointer;
-}
-
-/* CONTACT */
-
-.contact{
-    text-align:center;
-    padding:70px 20px;
-    background:#fff2cc;
-}
-
-.contact h2{
-    font-size:32px;
-    margin-bottom:20px;
-}
-
-.contact-buttons{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.call{
-    background:#333;
-    color:white;
-}
-
-.whatsapp{
-    background:#25D366;
-    color:white;
-}
-
-/* FOOTER */
-
-footer{
-    margin-top:40px;
-    padding:30px;
-    background:#f4d03f;
-    text-align:center;
-}
-
-footer a{
-    text-decoration:none;
-    font-weight:bold;
-    color:black;
-}
-
-</style>
-
+    footer a {
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+  <!-- =======================
+       HEADER
+  ======================= -->
+  <header>
+    <img src="logo.png" class="logo" alt="Niafas Bites Logo">
+    <h1>Mini Bites</h1>
+    <p>Antojos irresistibles para todos los gustos</p>
+  </header>
 
-<header>
+  <!-- =======================
+       PRODUCTS SECTION
+  ======================= -->
+  <section class="products">
+    <h2>Nuestros Productos</h2>
+    <div class="grid">
+      <div class="card" onclick="openModal('Mini Cookies','Mini galletas caseras suaves y llenas de sabor.')">
+        <h3>Mini Cookies</h3>
+      </div>
+      <div class="card" onclick="openModal('Pan de Bono','Pan de bono tradicional colombiano con queso, suave por dentro y ligeramente crujiente por fuera.')">
+        <h3>Pan de Bono</h3>
+      </div>
+      <div class="card" onclick="openModal('Polvorosas','Deliciosas galletas de mantequilla que se derriten en tu boca.')">
+        <h3>Polvorosas</h3>
+      </div>
+      <div class="card" onclick="openModal('Trufas de Mani y Chocolate','Trufas de chocolate con delicioso sabor a maní.')">
+        <h3>Trufas de Mani y Chocolate</h3>
+      </div>
+      <div class="card" onclick="openModal('Barras de Cookies','Barras de galleta con intenso sabor a chocolate y su topping de chocolate.')">
+        <h3>Barras de Cookies</h3>
+      </div>
+    </div>
+  </section>
 
-<img src="logo.png" class="logo">
-
-<h1>Mini Bites</h1>
-<p>Antojos irresistibles para todos los gustos</p>
-
-</header>
-
-<!-- PRODUCTS -->
-
-<section class="products">
-
-<h2>Nuestros Productos</h2>
-
-<div class="grid">
-
-<div class="card" onclick="openModal('Mini Cookies','Mini galletas caseras suaves y llenas de sabor.')">
-<h3>Mini Cookies</h3>
-</div>
-
-<div class="card" onclick="openModal(
-    'Pan de Bono',
-    'Nuestros ricos panes de bono están hechos con harina de yuca gluten free y queso de búfala sin lactosa.',
-    ['images/pan-de-bono1.png','images/pan-de-bono2.png']
-)">
-<h3>Pan de Bono</h3>
-</div>
-
-<div class="card" onclick="openModal('Polvorosas','Deliciosas galletas de mantequilla que se derriten en tu boca.')">
-<h3>Polvorosas</h3>
-</div>
-
-<div class="card" onclick="openModal('Trufas de Mani y Chocolate','Trufas de chocolate con delicioso sabor a maní.')">
-<h3>Trufas de Mani y Chocolate</h3>
-</div>
-
-<div class="card" onclick="openModal('Barras de Cookies','Barras de galleta con intenso sabor a chocolate y su topping de chocolate.')">
-<h3>Barras de Cookies</h3>
-</div>
-
-</div>
-
-</section>
-
-<!-- PRODUCT MODAL -->
-
-<div class="modal" id="productModal">
-
-<div class="modal-content">
-
-<div class="slider">
-    <img id="sliderImage" src="" alt="Producto">
-    <button id="prevBtn">&#10094;</button>
-    <button id="nextBtn">&#10095;</button>
-</div>
-
-<div class="description">
-    <h2 id="productTitle"></h2>
-    <p id="productDescription"></p>
-    <a id="whatsappBtn" target="_blank">
+  <!-- =======================
+       PRODUCT MODAL
+  ======================= -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <h2 id="productTitle"></h2>
+      <p id="productDescription"></p>
+      <a id="whatsappBtn" target="_blank">
         <button>Ordena por WhatsApp</button>
-    </a>
-    <br><br>
-    <button onclick="closeModal()">Cerrar</button>
-</div>
+      </a>
+      <br><br>
+      <button onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
 
-</div>
+  <!-- =======================
+       CONTACT SECTION
+  ======================= -->
+  <section class="contact">
+    <h2>Contáctanos</h2>
+    <div class="contact-buttons">
+      <a href="tel:+584144332483">
+        <button class="call">Llámanos</button>
+      </a>
+      <a href="https://wa.me/584144332483" target="_blank">
+        <button class="whatsapp">WhatsApp</button>
+      </a>
+    </div>
+  </section>
 
-</div>
+  <!-- =======================
+       FOOTER
+  ======================= -->
+  <footer>
+    <p>Síguenos en Instagram</p>
+    <a href="https://instagram.com/niafasbites" target="_blank">@niafasbites</a>
+  </footer>
 
-<!-- CONTACT -->
-
-<section class="contact">
-
-<h2>Contáctanos</h2>
-
-<div class="contact-buttons">
-
-<a href="tel:+584144332483">
-<button class="call">Llámanos</button>
-</a>
-
-<a href="https://wa.me/584144332483" target="_blank">
-<button class="whatsapp">WhatsApp</button>
-</a>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<p>Síguenos en Instagram</p>
-
-<a href="https://instagram.com/niafasbites" target="_blank">
-@niafasbites
-</a>
-
-</footer>
-
-<script>
-
-let currentImages = [];
-let currentIndex = 0;
-
-function openModal(title, description, imagesArray){
-    document.getElementById("productTitle").innerText = title;
-    document.getElementById("productDescription").innerText = description;
-
-    if(imagesArray){
-        currentImages = imagesArray;
-        currentIndex = 0;
-        document.getElementById("sliderImage").src = currentImages[currentIndex];
-        document.querySelector(".slider").style.display = "block";
-    } else {
-        document.querySelector(".slider").style.display = "none";
+  <!-- =======================
+       SCRIPT
+  ======================= -->
+  <script>
+    function openModal(title, description) {
+      document.getElementById("productTitle").innerText = title;
+      document.getElementById("productDescription").innerText = description;
+      let message = "Hola! Quiero ordenar " + title + " de Niafas Bites.";
+      document.getElementById("whatsappBtn").href = "https://wa.me/584144332483?text=" + encodeURIComponent(message);
+      document.getElementById("productModal").style.display = "flex";
     }
 
-    let message = "Hola! Quiero ordenar " + title + " de Niafas Bites.";
-    document.getElementById("whatsappBtn").href =
-        "https://wa.me/584144332483?text=" + encodeURIComponent(message);
-
-    document.getElementById("productModal").style.display = "flex";
-}
-
-document.getElementById("prevBtn").addEventListener("click", function(){
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-    document.getElementById("sliderImage").src = currentImages[currentIndex];
-});
-
-document.getElementById("nextBtn").addEventListener("click", function(){
-    currentIndex = (currentIndex + 1) % currentImages.length;
-    document.getElementById("sliderImage").src = currentImages[currentIndex];
-});
-
-function closeModal(){
-    document.getElementById("productModal").style.display = "none";
-}
-
-</script>
+    function closeModal() {
+      document.getElementById("productModal").style.display = "none";
+    }
+  </script>
 
 </body>
-
 </html>
